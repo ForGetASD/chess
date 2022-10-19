@@ -1,4 +1,4 @@
-let fenString = "rnbqkbnr/pppppppp/r6r/8/8/8/PPPPPPPP/RNBQKBNR"
+let fenString = "rnbqkbnr/pppppppp/3n3/8/8/8/PPPPPPPP/RNBQKBNR"
 let chessBoard = [
     ["", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", ""],
@@ -10,24 +10,35 @@ let chessBoard = [
     ["", "", "", "", "", "", "", ""]
 ]
 
-function fenStringToChessBoardArray() {
-    const fenTordelve = fenString.split('/')
-    const number = [1, 2, 3, 4, 5, 6, 7, 8]
-    for (let i = 0; i < chessBoard.length; i++) {
-        for (let j = 0; j < chessBoard.length; j++) {
-            if(isNaN(fenTordelve[i][j])){
-                chessBoard[i][j] = fenTordelve[i][j]
-            }else{
-                var jelenlegiJAllas = j
-                for (let k = 0; k < fenTordelve[i][jelenlegiJAllas]; k++) {
-                    chessBoard[i][j] = "-"
-                    j++
+
+
+function fenStringToChessBoardArray(){
+    let i = 0
+    let j = 0
+
+    while(fenString != ""){
+        if(fenString[0] == "/"){
+            i++
+            j = 0
+        }else{
+            if(!(isNaN(fenString[0]))){
+                for(let k = j; k < fenString[0] + j; k++){
+                    chessBoard[i][k] = "-"
                 }
-                j = jelenlegiJAllas
+                j += fenString[0]
+            }else{
+                chessBoard[i][j] = fenString[0]
+                j++
             }
         }
+        fenString = fenString.substring(1, fenString.length - 1)
     }
-    console.log(chessBoard)
+
+    for(let l = 1; l < 8; l++){
+        for (let m = 0; m < 8; m++) {
+            console.log(chessBoard[l][m])
+        }
+    }
 }
 
 
