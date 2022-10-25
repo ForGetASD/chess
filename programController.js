@@ -1,4 +1,4 @@
 function start(){
-    fenStringToChessBoardArray()
     createBoard()
+    feltolt()
 }
