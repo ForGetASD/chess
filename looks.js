@@ -1,4 +1,4 @@
-let fenString = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
+let fenString = "rnbqkbnr/pppppppp/3r4/r7/7r/r6r/PPPPPPPP/RNBQKBNR"
 let chessBoard = [
     ["", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", ""],
@@ -27,15 +27,13 @@ function feltolt(){
                 for (let index = j; index < szam; index++) {
                     chessBoard[i][index] = "-"
                 }
-                j += fenString[0]
+                j += parseInt(fenString[0])
             }
         }
         fenString = fenString.substring(1 , fenString.length)
-
-        console.log("kész")
-        console.log(chessBoard)
-        //fenString = ""
     }
+    console.log(chessBoard)
+    console.log(chessBoard[2][3])
 }
 
 
