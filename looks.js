@@ -10,7 +10,6 @@ let chessBoard = [
     ["", "", "", "", "", "", "", ""]
 ]
 
-
 function feltolt(){
     let i = 0
     let j = 0
@@ -40,11 +39,14 @@ function feltolt(){
 
 function createBoard(){
     let tabla = ""
-    for (let i = 0; i < 64; i++) {
-        tabla += "<div class='square'></div>"
+    for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+            tabla += `<div id="${i}" class='square'></div>`
+        }
     }
     $(".board").append(tabla)
     coloring()
+    feltolt()
     piecesPlacements()
 }
 
@@ -55,14 +57,13 @@ function coloring(){
 }
 
 function piecesPlacements(){
-    var szo = "asd"
     for (let i = 0; i < chessBoard.length; i++) {
         for (let j = 0; j < chessBoard.length; j++) {   
             if(String(chessBoard[i][j]) != "-"){
                 if(String(chessBoard[i][j]) === String(chessBoard[i][j]).toUpperCase()){
-                    thePieceColor("white", chessBoard[i][j])
+                    thePieceColor("white", chessBoard[i][j], i, j)
                 }else{
-                    thePieceColor("dark", chessBoard[i][j])
+                    thePieceColor("dark", chessBoard[i][j], i, j)
                 }
             }
         }
@@ -70,30 +71,38 @@ function piecesPlacements(){
 }
 
 
-function thePieceColor(color, babu){
-    const poz = $(".square")
-    //console.log(babu)
-    var url = './pics/' + color + 'Rook.png'
+function thePieceColor(color, babu, iPozicio, jPozicio){
+    let tomb = []
+    for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+            
+        }
+    }
+
     var image = new Image();
-    switch(babu) {
-        case "r":
-            image.src = url;
-            poz[0].append(image)
-            break;
-        // case n:
-        //     putdown
-        //     break;
-        // case b:
-        //     putdown
-        //     break;
-        // case q:
-        //     putdown
-        //     break;
-        // case k:
-        //     putdown
-        //     break;
-        // case p:
-        //     putdown
-        //     break;
-      }
+        if(babu == "r" || babu == "R"){
+            var url = './pics/' + color + 'Rook.png'
+            image.src = url
+            poz[iPozicio][jPozicio].append(image)
+        }else if(babu == "n" || babu == "N"){
+            var url = './pics/' + color + 'Knight.png'
+            image.src = url
+            poz[iPozicio][jPozicio].append(image)
+        }else if(babu == "b" || babu == "B"){
+            var url = './pics/' + color + 'Bishop.png'
+            image.src = url
+            poz[iPozicio][jPozicio].append(image)
+        }else if(babu == "q" || babu == "Q"){
+            var url = './pics/' + color + 'Queen.png'
+            image.src = url
+            poz[iPozicio][jPozicio].append(image)
+        }else if(babu == "k" || babu == "K"){
+            var url = './pics/' + color + 'King.png'
+            image.src = url
+            poz[iPozicio][jPozicio].append(image)
+        }else if(babu == "p" || babu == "P"){
+            var url = './pics/' + color + 'Pawn.png'
+            image.src = url
+            poz[iPozicio][jPozicio].append(image)
+        }
 }
