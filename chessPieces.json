@@ -1,0 +1,52 @@
+{
+    "pieces":[
+        {
+           "color": "dark",
+           "path":  "./Zpics/darkPawn.png"
+        },
+        {
+            "color": "dark",
+            "path":  "./Zpics/darkKnight.png"
+         },
+         {
+            "color": "dark",
+            "path":  "./Zpics/darkBishop.png"
+         },
+         {
+            "color": "dark",
+            "path":  "./Zpics/darkRook.png"
+         },
+         {
+            "color": "dark",
+            "path":  "./Zpics/darkQueen.png"
+         },
+         {
+            "color": "dark",
+            "path":  "./Zpics/darkKing.png"
+         },
+         {
+            "color": "white",
+            "path":  "./Zpics/whitePawn.png"
+         },
+         {
+            "color": "white",
+            "path":  "./Zpics/whiteKnight.png"
+         },
+         {
+            "color": "white",
+            "path":  "./Zpics/whiteBishop.png"
+         },
+         {
+            "color": "white",
+            "path":  "./Zpics/whiteRook.png"
+         },
+         {
+            "color": "white",
+            "path":  "./Zpics/whiteQueen.png"
+         },
+         {
+            "color": "white",
+            "path":  "./Zpics/whiteKint.png"
+         }
+    ]
+}
